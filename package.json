@@ -1,0 +1,15 @@
+{
+  "name": "01_react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/maz1125/React-Practice.git",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.1.1",
+    "webpack-dev-server": "^3.1.1"
+  }
+}
