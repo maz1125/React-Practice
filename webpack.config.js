@@ -5,7 +5,7 @@ const publidDir = path.join(__dirname, '/01_udemy_react/public');
 module.exports = [
   {
     entry: [
-      './01_udemy_react/src/index.js',
+      './01_udemy_react/src/index.jsx',
     ],
     output: {
       path: publidDir,
