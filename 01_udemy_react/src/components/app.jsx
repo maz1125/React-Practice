@@ -1,7 +1,13 @@
 import React from 'react';
+import Greeting from './greeting';
 
 function App(props) {
-  return (<div>Hello React from functional component</div>);
+  return (
+    <div>
+      <Greeting name="hage" />
+      <Greeting name="bob" />
+    </div>
+  );
 }
 
 export default App;
