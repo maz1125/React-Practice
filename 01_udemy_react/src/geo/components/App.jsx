@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import SearchForm from './SearchForm';
 import GeoResult from './GeoResult';
+
+const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
 
 class App extends Component {
   constructor(props) {
@@ -8,7 +11,33 @@ class App extends Component {
     this.state = {};
   }
   hundleOnSubmit(place) {
-    console.log(place);
+    axios
+      .get(GEOCODE_ENDPOINT, { params: { address: place } })
+      .then((results) => {
+        const resultData = results.data;
+        const result = resultData.results[0];
+        // TODO exception hundling
+        switch (resultData.status) {
+          case 'OK': {
+            const geoLocation = result.geometry.location;
+            this.setState({
+              address: result.formatted_address,
+              lat: geoLocation.lat,
+              lng: geoLocation.lng,
+            });
+            break;
+          }
+          default: {
+            this.setState({
+              address: '結果が見つかりませんでした',
+              lat: 0,
+              lng: 0,
+            });
+            break;
+          }
+        }
+      // console.log(results);
+      });
   }
   render() {
     return (
