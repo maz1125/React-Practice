@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-function GeoResult({ address, lat, lng} ) {
+function GeoResult({ address, lat, lng }) {
   return (
     <ui className="geo-result">
       <li>住所：{address}</li>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import SearchForm from './SearchForm';
 import GeoResult from './GeoResult';
+import Map from './Map';
 
 const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
 
@@ -49,6 +50,7 @@ class App extends Component {
           lat={this.state.lat}
           lng={this.state.lng}
         />
+        <Map lat={this.state.lat} lng={this.state.lng} />
       </div>
     );
   }
