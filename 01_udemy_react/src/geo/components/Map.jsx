@@ -1,22 +1,59 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { compose, withProps } from 'recompose';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 
-const Map = compose(
+// const Map = compose(
+//   withProps({
+//     googleMapURL: 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places',
+//     loadingElement: <div style={{ height: '100%' }} />,
+//     containerElement: <div className="map-container" style={{ height: '400px' }} />,
+//     mapElement: <div className="map-element" style={{ height: '100%' }} />,
+//   }),
+//   withScriptjs,
+//   withGoogleMap,
+// )(props =>
+//   (<GoogleMap
+//     defaultZoom={12}
+//     defaultCenter={{ lat: 35.6585805, lng: 139.7454329 }}
+//   >
+//     {props.isMarkerShown && <Marker position={{ lat: 35.6585805, lng: 139.7454329 }} />}
+//    </GoogleMap>),
+// 　);
+// export default Map;
+
+const enhance = compose(
   withProps({
     googleMapURL: 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places',
     loadingElement: <div style={{ height: '100%' }} />,
-    containerElement: <div style={{ height: '400px' }} />,
-    mapElement: <div style={{ height: '100%' }} />,
+    containerElement: <div className="map-container" style={{ height: '400px' }} />,
+    mapElement: <div className="map-element" style={{ height: '100%' }} />,
   }),
   withScriptjs,
   withGoogleMap,
-)(props =>
-  (<GoogleMap
-    defaultZoom={8}
-    defaultCenter={{ lat: -34.397, lng: 150.644 }}
-  >
-    {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
-   </GoogleMap>),
-　);
-export default Map;
+);
+
+const App = ({ lat, lng }) => {
+  const position = { lat, lng };
+  return (
+    <GoogleMap
+      defaultZoom={12}
+      defaultCenter={position}
+      center={position}
+    >
+      <Marker position={position} />
+    </GoogleMap>
+  );
+};
+
+App.propTypes = {
+  lat: PropTypes.number,
+  lng: PropTypes.number,
+};
+
+App.defaultProps = {
+  lat: 35.6585805,
+  lng: 139.7454329,
+};
+
+
+export default enhance(App);
