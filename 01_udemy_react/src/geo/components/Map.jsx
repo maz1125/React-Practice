@@ -46,14 +46,8 @@ const App = ({ lat, lng }) => {
 };
 
 App.propTypes = {
-  lat: PropTypes.number,
-  lng: PropTypes.number,
+  lat: PropTypes.number.isRequired,
+  lng: PropTypes.number.isRequired,
 };
-
-App.defaultProps = {
-  lat: 35.6585805,
-  lng: 139.7454329,
-};
-
 
 export default enhance(App);

@@ -9,7 +9,10 @@ const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      lat: 35.6585805,
+      lng: 139.7454329,
+    };
   }
   hundleOnSubmit(place) {
     axios

@@ -12,14 +12,12 @@ function GeoResult({ address, lat, lng }) {
 
 GeoResult.propTypes = {
   address: PropTypes.string,
-  lat: PropTypes.number,
-  lng: PropTypes.number,
+  lat: PropTypes.number.isRequired,
+  lng: PropTypes.number.isRequired,
 };
 
 GeoResult.defaultProps = {
   address: '',
-  lat: '',
-  lng: '',
 };
 
 export default GeoResult;
