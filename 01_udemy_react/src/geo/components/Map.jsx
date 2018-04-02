@@ -32,22 +32,18 @@ const enhance = compose(
   withGoogleMap,
 );
 
-const App = ({ lat, lng }) => {
-  const position = { lat, lng };
-  return (
-    <GoogleMap
-      defaultZoom={12}
-      defaultCenter={position}
-      center={position}
-    >
-      <Marker position={position} />
-    </GoogleMap>
-  );
-};
+const App = ({ location }) => (
+  <GoogleMap
+    defaultZoom={12}
+    defaultCenter={location}
+    center={location}
+  >
+    <Marker position={location} />
+  </GoogleMap>
+);
 
 App.propTypes = {
-  lat: PropTypes.number.isRequired,
-  lng: PropTypes.number.isRequired,
+  location: PropTypes.objectOf(PropTypes.number).isRequired,
 };
 
 export default enhance(App);

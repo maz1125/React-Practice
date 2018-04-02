@@ -1,41 +1,33 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 import SearchForm from './SearchForm';
 import GeoResult from './GeoResult';
 import Map from './Map';
-
-const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
+import { geoCode } from '../domain/GeoCoder';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lat: 35.6585805,
-      lng: 139.7454329,
+      location: {
+        lat: 35.6585805,
+        lng: 139.7454329,
+      },
     };
   }
   hundleOnSubmit(place) {
-    axios
-      .get(GEOCODE_ENDPOINT, { params: { address: place } })
-      .then((results) => {
-        const resultData = results.data;
-        const result = resultData.results[0];
+    geoCode(place)
+      .then(({ resultStatus, resultAddress, resultLocation }) => {
         // TODO exception hundling
-        switch (resultData.status) {
+        switch (resultStatus) {
           case 'OK': {
-            const geoLocation = result.geometry.location;
-            this.setState({
-              address: result.formatted_address,
-              lat: geoLocation.lat,
-              lng: geoLocation.lng,
-            });
+            this.setState({ address: resultAddress, location: resultLocation });
             break;
           }
           default: {
             this.setState({
               address: '結果が見つかりませんでした',
-              lat: 0,
-              lng: 0,
+              location: resultLocation,
             });
             break;
           }
@@ -50,10 +42,9 @@ class App extends Component {
         <SearchForm onSubmit={place => this.hundleOnSubmit(place)} />
         <GeoResult
           address={this.state.address}
-          lat={this.state.lat}
-          lng={this.state.lng}
+          location={this.state.location}
         />
-        <Map lat={this.state.lat} lng={this.state.lng} />
+        <Map location={this.state.location} />
       </div>
     );
   }
