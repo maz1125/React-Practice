@@ -2,10 +2,10 @@ $background-color: #eee;
 $text-color: #444470;
 
 body {
-  background-color: $background-color;
-  text-align: center;
-  color:$text-color;
+
 }
 
-@import 'Map';
+@import 'App';
+@import 'SearchForm';
+@import 'SearchResultArea';
 @import 'GeoResult';

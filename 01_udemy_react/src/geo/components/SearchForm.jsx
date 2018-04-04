@@ -17,13 +17,14 @@ class SearchForm extends Component {
   }
   render() {
     return (
-      <form onSubmit={e => this.handleSubmit(e)}>
+      <form className="search-form" onSubmit={e => this.handleSubmit(e)}>
         <input
+          className="place-input"
           type="text"
           value={this.state.value}
           onChange={e => this.handleChangeValue(e.target.value)}
         />
-        <input type="submit" value="検索" />
+        <input className="button-input" type="submit" value="検索" />
       </form>
     );
   }

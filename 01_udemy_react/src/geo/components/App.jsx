@@ -37,14 +37,16 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <h2 className="header">緯度経度検索</h2>
+      <div className="app">
+        <h2 className="app-header">ホテル検索</h2>
         <SearchForm onSubmit={place => this.hundleOnSubmit(place)} />
-        <GeoResult
-          address={this.state.address}
-          location={this.state.location}
-        />
-        <Map location={this.state.location} />
+        <div className="search-result-area">
+          <Map location={this.state.location} />
+          <GeoResult
+            address={this.state.address}
+            location={this.state.location}
+          />
+        </div>
       </div>
     );
   }
