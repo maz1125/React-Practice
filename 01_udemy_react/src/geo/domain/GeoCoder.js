@@ -16,6 +16,7 @@ export const geoCode = place =>
       const resultAddress = result.formatted_address;
       const resultLocation = result.geometry.location;
       return { resultStatus, resultAddress, resultLocation };
+      // return { resultStatus };
     });
 
 export const reverseGeoCode = () => null;
