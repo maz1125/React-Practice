@@ -2,7 +2,15 @@
   background-color: $background-color;
   color:$text-color;
   width: 1000px;
-  margin: 0 auto;
+  margin: $base-margin auto 0;
+  display: flex;
+}
+
+.left-navi{
+  list-style-type: none;
+  border-right: 1px solid #ccc;
+  margin-right: $base-margin;
+  padding-right: $base-margin;
 }
 
 .app-header{
