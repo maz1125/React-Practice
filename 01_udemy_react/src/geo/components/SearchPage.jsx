@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import SearchForm from './SearchForm';
 import GeoResult from './GeoResult';
@@ -9,6 +10,7 @@ import { searchHotelByLocation } from '../domain/HotelRepository';
 
 class SearchPage extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
       location: {
@@ -18,6 +20,7 @@ class SearchPage extends Component {
     };
   }
   hundleOnSubmit(place) {
+    this.props.history.push(`/?query=${place}`);
     geoCode(place)
       .then(({ resultStatus, resultAddress, resultLocation }) => {
         // TODO exception hundling
@@ -59,5 +62,11 @@ class SearchPage extends Component {
     );
   }
 }
+
+SearchPage.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
 
 export default SearchPage;
