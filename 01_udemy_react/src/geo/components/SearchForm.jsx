@@ -1,19 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 
 class SearchForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '東京タワー',
-    };
-  }
-
-  handleChangeValue(value) {
-    this.setState({ value });
-  }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.onSubmit(this.state.value);
+    this.props.onSubmit();
+  }
+
+  handleChangeValue(e) {
+    e.preventDefault();
+    console.log(this.props.onChange);
+    this.props.onChange(e.target.value);
   }
   render() {
     return (
@@ -21,8 +17,8 @@ class SearchForm extends Component {
         <input
           className="place-input"
           type="text"
-          value={this.state.value}
-          onChange={e => this.handleChangeValue(e.target.value)}
+          value={this.props.value}
+          onChange={e => this.props.onChange(e.target.value)}
         />
         <input className="button-input" type="submit" value="検索" />
       </form>
@@ -31,7 +27,9 @@ class SearchForm extends Component {
 }
 
 SearchForm.propTypes = {
+  value: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default SearchForm;
