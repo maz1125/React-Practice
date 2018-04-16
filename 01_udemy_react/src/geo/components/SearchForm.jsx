@@ -8,7 +8,6 @@ class SearchForm extends Component {
 
   handleChangeValue(e) {
     e.preventDefault();
-    console.log(this.props.onChange);
     this.props.onChange(e.target.value);
   }
   render() {
@@ -18,7 +17,7 @@ class SearchForm extends Component {
           className="place-input"
           type="text"
           value={this.props.value}
-          onChange={e => this.props.onChange(e.target.value)}
+          onChange={e => this.props.onChange(e)}
         />
         <input className="button-input" type="submit" value="検索" />
       </form>

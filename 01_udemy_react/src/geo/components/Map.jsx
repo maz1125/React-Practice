@@ -18,7 +18,7 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-map
 //   >
 //     {props.isMarkerShown && <Marker position={{ lat: 35.6585805, lng: 139.7454329 }} />}
 //    </GoogleMap>),
-// 　);
+// );
 // export default Map;
 
 const enhance = compose(
