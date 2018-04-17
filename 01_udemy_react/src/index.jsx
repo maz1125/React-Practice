@@ -12,19 +12,11 @@ import reducer from './geo/reducers/';
 // ReactDOM.render(<App />, document.querySelector('.container'));
 // ReactDOM.render(<ClassApp   />, document.querySelector('.container'));
 
-const store = createStore(reducer);
-const render = () => {
-  const state = store.getState();
-  ReactDOM.render(
-    <SearchPage
-      history={window.history}
-      location={window.location}
-      place={state.place}
-      onPlaceChange={place => store.dispatch({ type: 'CHANGE_PLACE', place })}
-    />,
-    document.querySelector('.container'),
-  );
-};
-
-render();
-store.subscribe(render);
+ReactDOM.render(
+  <SearchPage
+    history={window.history}
+    location={window.location}
+    store={createStore(reducer)}
+  />,
+  document.querySelector('.container'),
+);
