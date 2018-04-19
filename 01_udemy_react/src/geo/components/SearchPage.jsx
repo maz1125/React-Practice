@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
 
-import SearchForm from './SearchForm';
+import SearchForm from '../containers/SearchForm';
 // import GeoResult from './GeoResult';
 // import Map from './Map';
 // import HotelTable from './HotelTable';
@@ -21,10 +21,9 @@ class SearchPage extends Component {
     };
   }
   componentDidMount() {
-    const place = this.getPlace();
-    if (place) {
-      this.startSearch();
-    }
+  }
+
+  componentWillUnmount() {
   }
 
   hundleOnSubmit(e) {
@@ -35,7 +34,7 @@ class SearchPage extends Component {
 
   hundleOnChange(e) {
     e.preventDefault();
-    this.props.onPlaceChange(e.target.value);
+    this.props.store.dispatch({ type: 'CHANGE_PLACE', place: e.target.value });
   }
 
   getPlace() {
@@ -75,7 +74,6 @@ class SearchPage extends Component {
       <div className="search-page">
         <h2 className="app-header">ホテル検索</h2>
         <SearchForm
-          value={this.props.place}
           onSubmit={e => this.hundleOnSubmit(e)}
           onChange={e => this.hundleOnChange(e)}
         />
@@ -104,8 +102,6 @@ SearchPage.propTypes = {
   location: PropTypes.shape({
     search: PropTypes.func,
   }).isRequired,
-  place: PropTypes.string.isRequired,
-  onPlaceChange: PropTypes.func.isRequired,
 };
 
 export default SearchPage;

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 // import App from './components/app';
 // import ClassApp from './components/classApp';
@@ -13,10 +14,11 @@ import reducer from './geo/reducers/';
 // ReactDOM.render(<ClassApp   />, document.querySelector('.container'));
 
 ReactDOM.render(
-  <SearchPage
-    history={window.history}
-    location={window.location}
-    store={createStore(reducer)}
-  />,
+  <Provider store={createStore(reducer)}>
+    <SearchPage
+      history={window.history}
+      location={window.location}
+    />
+  </Provider>,
   document.querySelector('.container'),
 );
