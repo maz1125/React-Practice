@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
+import { connect } from 'react-redux';
 
 import SearchForm from '../containers/SearchForm';
-// import GeoResult from './GeoResult';
-// import Map from './Map';
+import GeoResult from './GeoResult';
+import Map from './Map';
 // import HotelTable from './HotelTable';
-import { geoCode } from '../domain/GeoCoder';
-import { searchHotelByLocation } from '../domain/HotelRepository';
 
 class SearchPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      place: this.getPlace() || '東京タワー',
-      location: {
-        lat: 35.6585805,
-        lng: 139.7454329,
-      },
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     place: this.getPlace() || '東京タワー',
+  //   };
+  // }
 
   getPlace() {
     const params = queryString.parse(this.props.location.search);
@@ -35,18 +30,18 @@ class SearchPage extends Component {
       <div className="search-page">
         <h2 className="app-header">ホテル検索</h2>
         <SearchForm />
-        {/*
         <div className="search-result-area">
-          <Map location={this.state.location} />
+          <Map location={this.props.geocodeResults.location} />
           <div className="result-data" >
             <GeoResult
-              address={this.state.address}
-              location={this.state.location}
+              address={this.props.geocodeResults.address}
+              location={this.props.geocodeResults.location}
             />
+            {/*
             <HotelTable hotels={this.state.hotels} />
+            */}
           </div>
         </div>
-        */}
       </div>
     );
   }
@@ -60,6 +55,17 @@ SearchPage.propTypes = {
   location: PropTypes.shape({
     search: PropTypes.func,
   }).isRequired,
+  geocodeResults: PropTypes.shape({
+    address: PropTypes.string.isRequired,
+    location: PropTypes.shape({
+      lng: PropTypes.number.isRequired,
+      lot: PropTypes.number.isRequired,
+    }),
+  }).isRequired,
 };
 
-export default SearchPage;
+const mapStateToProps = state => ({
+  geocodeResults: state.geocodeResults,
+});
+
+export default connect(mapStateToProps)(SearchPage);

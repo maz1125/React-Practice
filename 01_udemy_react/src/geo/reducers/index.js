@@ -16,7 +16,7 @@ const geocodeResults = (state = {
   switch (action.type) {
     case 'GEOCODE_FETCHED':
       return {
-        address: action.place,
+        address: action.address,
         location: action.location,
       };
     default:
