@@ -8,10 +8,6 @@ class SearchForm extends Component {
     this.props.onSubmit(this.props.place);
   }
 
-  handleChangeValue(e) {
-    e.preventDefault();
-    this.props.onChange(e.target.value);
-  }
   render() {
     return (
       <form className="search-form" onSubmit={e => this.handleSubmit(e)}>
@@ -31,9 +27,8 @@ class SearchForm extends Component {
 }
 
 SearchForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
   place: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
   onPlaceChange: PropTypes.func.isRequired,
 };
 

@@ -20,22 +20,6 @@ class SearchPage extends Component {
       },
     };
   }
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
-  hundleOnSubmit(e) {
-    e.preventDefault();
-    this.props.history.push(`/?place=${this.state.place}`);
-    this.startSearch();
-  }
-
-  hundleOnChange(e) {
-    e.preventDefault();
-    this.props.store.dispatch({ type: 'CHANGE_PLACE', place: e.target.value });
-  }
 
   getPlace() {
     const params = queryString.parse(this.props.location.search);
@@ -46,16 +30,11 @@ class SearchPage extends Component {
     return null;
   }
 
-  startSearch() {
-
-  }
   render() {
     return (
       <div className="search-page">
         <h2 className="app-header">ホテル検索</h2>
-        <SearchForm
-          onChange={e => this.hundleOnChange(e)}
-        />
+        <SearchForm />
         {/*
         <div className="search-result-area">
           <Map location={this.state.location} />
@@ -75,9 +54,9 @@ class SearchPage extends Component {
 
 SearchPage.propTypes = {
   // place: PropTypes.string.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
+  // history: PropTypes.shape({
+  //   push: PropTypes.func,
+  // }).isRequired,
   location: PropTypes.shape({
     search: PropTypes.func,
   }).isRequired,
