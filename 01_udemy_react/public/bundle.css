@@ -1,2 +1,43 @@
-body {
-  background-color: #ccc; }
+.app {
+  background-color: #eee;
+  color: #444470;
+  width: 1000px;
+  margin: 40px auto 0;
+  display: flex; }
+
+.left-navi {
+  list-style-type: none;
+  border-right: 1px solid #ccc;
+  margin-right: 40px;
+  padding-right: 40px; }
+
+.app-header {
+  text-align: center; }
+
+.search-form {
+  text-align: center;
+  margin-bottom: 40px; }
+
+.place-input {
+  font-size: 24px;
+  padding: 4px 0 5px; }
+
+.button-input {
+  -webkit-appearance: none;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  border-radius: 5px; }
+
+.search-result-area {
+  display: flex; }
+
+.result-data {
+  margin-left: 20px; }
+
+.geo-result {
+  width: 400px;
+  margin: 0 auto;
+  text-align: left; }
+
+.hotel-price-row {
+  min-width: 70px; }
