@@ -47,34 +47,13 @@ class SearchPage extends Component {
   }
 
   startSearch() {
-    geoCode(this.state.place)
-      .then(({ resultStatus, resultAddress, resultLocation }) => {
-        // TODO exception hundling
-        switch (resultStatus) {
-          case 'OK': {
-            this.setState({ address: resultAddress, location: resultLocation });
-            return searchHotelByLocation(resultLocation);
-          }
-          default: {
-            this.setState({
-              address: '結果が見つかりませんでした',
-              location: resultLocation,
-            });
-            break;
-          }
-        }
-        return [];
-      // console.log(results);
-      }).then((hotels) => {
-        this.setState({ hotels });
-      });
+
   }
   render() {
     return (
       <div className="search-page">
         <h2 className="app-header">ホテル検索</h2>
         <SearchForm
-          onSubmit={e => this.hundleOnSubmit(e)}
           onChange={e => this.hundleOnChange(e)}
         />
         {/*
