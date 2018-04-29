@@ -1,8 +1,6 @@
 .app{
   background-color: $background-color;
   color:$text-color;
-  width: 1000px;
-  margin: $base-margin auto 0;
   display: flex;
 }
 
@@ -11,6 +9,16 @@
   border-right: 1px solid #ccc;
   margin-right: $base-margin;
   padding-right: $base-margin;
+}
+
+.side-menu{
+  max-width: 230px;
+  background-color: #d7e4f4;
+  border-right: 1px solid #ccc;
+}
+
+.search-page{
+  padding: 0 $base-margin;
 }
 
 .app-header{

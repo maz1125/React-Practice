@@ -16,10 +16,11 @@ const App = () => (
         <div className="siimple-navbar-title">ホテル検索</div>
       </div>
       <div className="app">
-        <ul className="left-navi">
-          <li><Link to="/">ホテル検索</Link></li>
-          <li><Link to="/about">検索履歴</Link></li>
-        </ul>
+        <div className="siimple-menu side-menu">
+          <div className="siimple-menu-group" />
+          <Link to="/" className="siimple-menu-item">ホテル検索</Link>
+          <Link to="/about" className="siimple-menu-item">検索履歴</Link>
+        </div>
         <Switch>
           <Route exact path="/" component={SearchPage} />
           <Route exact path="/about" component={AboutPage} />
