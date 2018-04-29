@@ -1,11 +1,11 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const publidDir = path.join(__dirname, '/01_udemy_react/public');
+const publidDir = path.join(__dirname, '/public');
 module.exports = [
   {
     entry: [
-      './01_udemy_react/src/index.jsx',
+      './src/index.jsx',
     ],
     output: {
       path: publidDir,
@@ -31,7 +31,7 @@ module.exports = [
   },
   {
     entry: {
-      style: './01_udemy_react/stylesheets/index.scss',
+      style: './stylesheets/index.scss',
     },
     output: {
       path: publidDir,
