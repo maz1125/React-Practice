@@ -20,7 +20,7 @@ class SearchForm extends Component {
           value={this.props.value}
           onChange={e => this.props.onChange(e.target.value)}
         />
-        <input className="button-input" type="submit" value="検索" />
+        <input className="button-input siimple-btn siimple-btn--blue" type="submit" value="検索" />
       </form>
     );
   }

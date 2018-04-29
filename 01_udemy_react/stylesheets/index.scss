@@ -2,8 +2,13 @@ $background-color: #eee;
 $text-color: #444470;
 $base-margin: 40px;
 
-body {
+body
+{
+  font-family: Verdana, Arial, 'sans-serif';
+}
 
+.align-center{
+  text-align: center;
 }
 
 @import 'App';
