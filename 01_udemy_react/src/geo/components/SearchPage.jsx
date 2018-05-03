@@ -72,14 +72,15 @@ class SearchPage extends Component {
   render() {
     return (
       <div className="search-page">
-        <h2 className="app-header">ホテル検索</h2>
         <SearchForm
           value={this.state.place}
           onSubmit={e => this.hundleOnSubmit(e)}
           onChange={place => this.hundleOnChange(place)}
         />
         <div className="search-result-area">
-          <Map location={this.state.location} />
+          <div className="map-area">
+            <Map location={this.state.location} />
+          </div>
           <div className="result-data" >
             <GeoResult
               address={this.state.address}

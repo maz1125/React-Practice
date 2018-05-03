@@ -6,10 +6,10 @@ function HotelRow({ hotel }) {
       <td><img src={hotel.thumbUrl} alt="" /></td>
       <td><a href={hotel.url} target="_blank">{hotel.name}</a></td>
       <td>{hotel.price}</td>
-      <td>{hotel.distance}</td>
     </tr>
   );
 }
+// <td>{hotel.distance}</td>
 
 HotelRow.propTypes = {
   hotel: PropTypes.shape({

@@ -15,7 +15,7 @@ class SearchForm extends Component {
     return (
       <form className="search-form" onSubmit={e => this.handleSubmit(e)}>
         <input
-          className="place-input siimple-input"
+          className="place-input siimple-input siimple-input--fluid"
           type="text"
           value={this.props.value}
           onChange={e => this.props.onChange(e.target.value)}
