@@ -82,10 +82,6 @@ class SearchPage extends Component {
             <Map location={this.state.location} />
           </div>
           <div className="result-data" >
-            <GeoResult
-              address={this.state.address}
-              location={this.state.location}
-            />
             <HotelTable hotels={this.state.hotels} />
           </div>
         </div>
@@ -93,6 +89,10 @@ class SearchPage extends Component {
     );
   }
 }
+// <GeoResult
+// address={this.state.address}
+// location={this.state.location}
+// />
 
 SearchPage.propTypes = {
   // place: PropTypes.string.isRequired,
