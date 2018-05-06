@@ -13,7 +13,12 @@ const App = () => (
   <Router>
     <div>
       <div className="siimple-navbar siimple-navbar--navy">
-        <div className="siimple-navbar-title">ホテル検索</div>
+        <div className="siimple-layout--left">
+          <div className="siimple-navbar-title">ホテル検索</div>
+        </div>
+        <div className="siimple-layout--right">
+          <a className="siimple-navbar-link">ログイン</a>
+        </div>
       </div>
       <div className="app">
         <div className="siimple-menu side-menu">
