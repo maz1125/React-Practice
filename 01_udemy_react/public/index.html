@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>ホテル検索</title>
     <link rel="stylesheet" href="bundle.css">
+    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.0.0/dist/siimple.min.css">
   </head>
   <body>
@@ -11,4 +12,19 @@
   </body>
   <!-- <script src="https://maps.googleapis.com/maps/api/js"></script> -->
   <script src="bundle.js" charset="utf-8"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC8JanmRIhg0SVlUavOPTrf_VdwfzJ65Ns",
+      authDomain: "search-hotel-f93c0.firebaseapp.com",
+      databaseURL: "https://search-hotel-f93c0.firebaseio.com",
+      projectId: "search-hotel-f93c0",
+      storageBucket: "search-hotel-f93c0.appspot.com",
+      messagingSenderId: "483785857418"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="main.js" charset="utf-8"></script>
 </html>

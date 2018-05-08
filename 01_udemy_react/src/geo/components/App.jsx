@@ -17,7 +17,16 @@ const App = () => (
           <div className="siimple-navbar-title">ホテル検索</div>
         </div>
         <div className="siimple-layout--right">
-          <a className="siimple-navbar-link">ログイン</a>
+          <div id="user-container">
+            <div hidden id="user-pic" />
+            <div hidden id="user-name" />
+            <button hidden id="sign-out" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+              Sign-out
+            </button>
+            <button hidden id="sign-in" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+              Sign-in with Google
+            </button>
+          </div>
         </div>
       </div>
       <div className="app">
